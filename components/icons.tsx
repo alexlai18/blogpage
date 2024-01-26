@@ -146,11 +146,31 @@ export const Icons = {
     </svg>
   ),
   email: (props: IconProps) => (
-    <svg role="img" viewBox="0 0 24 24" {...props} xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <svg role="img" viewBox="0 0 24 24" {...props} xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect>
       <path
         d="M3 7L12 13 21 7"
       />
+    </svg>
+  ),
+  website: (props: IconProps) => (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="1"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" ry="2"></rect>
+      <line x1="3" y1="9" x2="21" y2="9"></line>
+      <line x1="4" y1="13" x2="9" y2="13"></line>
+      <line x1="4" y1="15" x2="11" y2="15"></line>
+      <line x1="4" y1="17" x2="11" y2="17"></line>
+      <rect x="15" y="12" width="4" height="3" />
     </svg>
   ),
 }

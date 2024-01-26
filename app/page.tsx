@@ -42,6 +42,10 @@ export default function Home() {
            <Icons.email className="mr-2 h-11 w-11" />
            <a className="font-medium text-primary underline underline-offset-4" href="mailto:alaiier18@gmail.com">alaiier18@gmail.com</a>
           </div>
+          <div className="flex flex-row items-center gap-4">
+           <Icons.website className="mr-2 h-11 w-11" />
+           <a className="font-medium text-primary underline underline-offset-4" href="https://alexanderlai.netlify.app/">https://alexanderlai.netlify.app/</a>
+          </div>
         </div>
       </div>
     </main>
