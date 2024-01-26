@@ -5,7 +5,7 @@ interface BlogBannerProps {
   imgUrl: string
 }
 
-const BlogPostBanner: React.FC<BlogBannerProps> = ({ imgUrl }) => {
+export default function BlogPostBanner({ imgUrl }: BlogBannerProps) {
   return (
     <AspectRatio ratio={40 / 10} className="bg-muted">
       <Image
@@ -17,5 +17,3 @@ const BlogPostBanner: React.FC<BlogBannerProps> = ({ imgUrl }) => {
     </AspectRatio>
   );
 }
-
-export default BlogPostBanner;

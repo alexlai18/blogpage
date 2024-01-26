@@ -1,20 +1,28 @@
-import * as React from "react"
- 
-import { Button } from "@/components/ui/button"
+"use client"
+import React, { useState } from "react"
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { CreateBlogPostForm } from "./CreateBlogPostForm"
+import CreateBlogPostForm from "./CreateBlogPostForm";
+import ErrorPopup from "../ErrorPopup";
+import { useTheme } from "next-themes";
 
 export function CreateBlogPostCard() {
+  const [error, setError] = useState(false);
+  const { theme } = useTheme()
   return (
     <Card className="w-[70%]">
       <CardHeader>
+        {error &&
+          <ErrorPopup
+            severity={true}
+            message="Please fill out all the inputs in the form below"
+            theme={theme}
+          />
+        }
         <CardTitle>Write a blog post</CardTitle>
         <div className="flex flex-row gap-1 items-baseline">
           <CardDescription>
@@ -23,13 +31,7 @@ export function CreateBlogPostCard() {
           <div className="text-xs text-muted-foreground">&#40;Even if it's innappropriate 🤫&#41;</div>
         </div>
       </CardHeader>
-      <CardContent>
-        <CreateBlogPostForm />
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline">Reset</Button>
-        <Button>Post</Button>
-      </CardFooter>
+      <CreateBlogPostForm setError={setError}/>
     </Card>
   )
 }
