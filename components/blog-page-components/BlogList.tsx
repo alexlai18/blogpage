@@ -9,10 +9,13 @@ import { BlogPostInfo } from "../helper-interfaces";
 const BlogList = () => {
   const router = useRouter()
   const [blogPosts, setBlogPosts] = useState<BlogPostInfo[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     setBlogPosts([
       {
+        id: "1",
         title: "Fake blog",
         summary: "This is just for the card",
         content: "hello testing 1 2 3, testing 1 2 3",
@@ -20,10 +23,11 @@ const BlogList = () => {
         createdAt: "27-01-2024"
       }
     ]);
+    setLoading(false);
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col w-full justify-center items-center">
       {blogPosts.length === 0 &&
         <div className="flex flex-col h-full mt-40 gap-4 text-center">
           <h1 className="text-3xl font-extrabold mb-6">There are no blog posts 😔</h1>
@@ -34,7 +38,11 @@ const BlogList = () => {
       {
         blogPosts.length > 0 &&
         blogPosts.map((blog) => {
-          return <BlogCard blog={blog}/>
+          return (
+            <button className="w-full" onClick={() => router.push(`/blogs/${blog.id}`)}>
+              <BlogCard blog={blog} />
+            </button>
+          )
         })
       }
     </div>
