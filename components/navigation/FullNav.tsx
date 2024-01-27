@@ -1,9 +1,9 @@
-import { ThemeButton } from "../theme/ThemeButton"
-import { MainNav } from "./MainNav"
-import { SearchBar } from "./SearchBar"
+import ThemeButton from "../theme/ThemeButton"
+import MainNav  from "./MainNav"
+import SearchBar from "./SearchBar"
 
 
-export function FullNav({}: React.HTMLAttributes<HTMLElement>) {
+const FullNav = () => {
   return (
     <div className="flex flex-col">
       <div className="border-b">
@@ -18,3 +18,5 @@ export function FullNav({}: React.HTMLAttributes<HTMLElement>) {
     </div>
   )
 }
+
+export default FullNav;

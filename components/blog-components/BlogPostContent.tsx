@@ -2,8 +2,10 @@ interface BlogContentProps {
   content: string,
 }
 
-export default function BlogPostContent ({ content }: BlogContentProps) {
+const BlogPostContent: React.FC<BlogContentProps> = ({ content }) => {
   return (
     <h1>{content}</h1>
   );
 }
+
+export default BlogPostContent;

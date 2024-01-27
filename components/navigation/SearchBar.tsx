@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Icons } from "../icons";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
-export function SearchBar() {
+const SearchBar = () => {
   const router = useRouter();
 
   const [search, setSearch] = useState("");
@@ -33,3 +33,5 @@ export function SearchBar() {
     </div>
   )
 }
+
+export default SearchBar;

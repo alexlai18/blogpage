@@ -1,4 +1,4 @@
-import { CreateBlogPostCard } from "@/components/create-post-components/CreateBlogPostCard";
+import CreateBlogPostCard from "@/components/create-post-components/CreateBlogPostCard";
 
 export default function Blogs() {
   return (

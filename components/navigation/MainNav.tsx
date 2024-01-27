@@ -3,10 +3,10 @@ import Link from "next/link"
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils"
 
-export function MainNav({
+const MainNav = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLElement>) {
+}: React.HTMLAttributes<HTMLElement>) => {
   const pathname = usePathname();
   return (
     <nav
@@ -40,3 +40,5 @@ export function MainNav({
     </nav>
   )
 }
+
+export default MainNav;

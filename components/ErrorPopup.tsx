@@ -12,7 +12,7 @@ interface ErrorInputProps {
   theme?: string
 }
 
-export default function ErrorPopup ({message, severity, theme} : ErrorInputProps) {
+const ErrorPopup: React.FC<ErrorInputProps> = ({message, severity, theme}) => {
   const variant = severity ? "destructive" : null
 
   return (
@@ -25,3 +25,5 @@ export default function ErrorPopup ({message, severity, theme} : ErrorInputProps
     </Alert>
   );
 }
+
+export default ErrorPopup;

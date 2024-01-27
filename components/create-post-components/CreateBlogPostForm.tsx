@@ -12,7 +12,7 @@ interface PostForm {
   setError: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function CreateBlogPostForm({ setError }: PostForm) {
+const CreateBlogPostForm: React.FC<PostForm> = ({ setError }) => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
@@ -90,3 +90,5 @@ export default function CreateBlogPostForm({ setError }: PostForm) {
     </>
   )
 }
+
+export default CreateBlogPostForm;

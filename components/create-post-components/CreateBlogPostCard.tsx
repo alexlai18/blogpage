@@ -10,7 +10,7 @@ import CreateBlogPostForm from "./CreateBlogPostForm";
 import ErrorPopup from "../ErrorPopup";
 import { useTheme } from "next-themes";
 
-export function CreateBlogPostCard() {
+const CreateBlogPostCard = () => {
   const [error, setError] = useState(false);
   const { theme } = useTheme()
   return (
@@ -35,3 +35,5 @@ export function CreateBlogPostCard() {
     </Card>
   )
 }
+
+export default CreateBlogPostCard;

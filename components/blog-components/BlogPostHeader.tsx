@@ -4,7 +4,7 @@ interface BlogBannerProps {
   createdAt: string
 }
 
-export default function BlogPostHeader({ title, author, createdAt }: BlogBannerProps) {
+const BlogPostHeader: React.FC<BlogBannerProps> = ({ title, author, createdAt }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-3xl font-extrabold mb-6">{title}</h1>
@@ -13,3 +13,5 @@ export default function BlogPostHeader({ title, author, createdAt }: BlogBannerP
     </div>
   );
 }
+
+export default BlogPostHeader;
