@@ -4,7 +4,7 @@ interface BlogContentProps {
 
 const BlogPostContent: React.FC<BlogContentProps> = ({ content }) => {
   return (
-    <h1>{content}</h1>
+    <p className="whitespace-pre-wrap">{content}</p>
   );
 }
 

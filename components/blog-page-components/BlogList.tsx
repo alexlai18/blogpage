@@ -1,30 +1,18 @@
 
 "use client"
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "../ui/button";
 import { useRouter } from 'next/navigation'
 import BlogCard from "./BlogCard";
 import { BlogPostInfo } from "../helper-interfaces";
 
-const BlogList = () => {
-  const router = useRouter()
-  const [blogPosts, setBlogPosts] = useState<BlogPostInfo[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+interface BlogCardProps {
+  blogs: BlogPostInfo[]
+}
 
-  useEffect(() => {
-    setLoading(true);
-    setBlogPosts([
-      {
-        id: "1",
-        title: "Fake blog",
-        summary: "This is just for the card",
-        content: "hello testing 1 2 3, testing 1 2 3",
-        author: "Anonymous",
-        createdAt: "27-01-2024"
-      }
-    ]);
-    setLoading(false);
-  }, []);
+const BlogList: React.FC<BlogCardProps> = ({ blogs }) => {
+  const router = useRouter();
+  const blogPosts = blogs;
 
   return (
     <div className="flex flex-col w-full justify-center items-center">
@@ -32,14 +20,14 @@ const BlogList = () => {
         <div className="flex flex-col h-full mt-40 gap-4 text-center">
           <h1 className="text-3xl font-extrabold mb-6">There are no blog posts 😔</h1>
           <h3 className="text-xl font-extrabold mb-6">Help us out by creating a blog post.</h3>
-          <Button onClick={() => router.push('/createpost')}>Create Blog Post</Button>
+          <Button id="redirect-create-blog" onClick={() => router.push('/createpost')}>Create Blog Post</Button>
         </div>
       }
       {
         blogPosts.length > 0 &&
         blogPosts.map((blog) => {
           return (
-            <button className="w-full" onClick={() => router.push(`/blogs/${blog.id}`)}>
+            <button id={blog._id} className="w-full" onClick={() => router.push(`/blogs/${blog._id}`)}>
               <BlogCard blog={blog} />
             </button>
           )

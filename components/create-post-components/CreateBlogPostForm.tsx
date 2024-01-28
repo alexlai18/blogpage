@@ -4,25 +4,35 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "../ui/textarea"
 import { Switch } from "../ui/switch"
-import { PersonIcon } from "@radix-ui/react-icons"
+import { PersonIcon, ReloadIcon } from "@radix-ui/react-icons"
 import { CardContent, CardFooter } from "../ui/card"
 import { Button } from "../ui/button"
+import { createPost } from "@/lib/apiClient"
+import { useRouter } from "next/navigation"
 
 interface PostForm {
   setError: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CreateBlogPostForm: React.FC<PostForm> = ({ setError }) => {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [anonymous, setAnonymous] = useState(false);
   const [image, setImage] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
 
 
-  const handleCreatePost = () => {
-    if (title !== "" && summary !== "" && content !== "" && image) {
+  const handleCreatePost = async () => {
+    if (title !== "" && summary !== "" && content !== "") {
+      // Image not needed
+      setLoading(true);
       setError(false);
+      const author = anonymous ? "Anonymous" : "User";
+      const newPost = await createPost({title, summary, content, author, image});
+      setLoading(false);
+      router.push(`/blogs/${newPost._id}`)
     } else {
       setError(true);
     }
@@ -85,7 +95,14 @@ const CreateBlogPostForm: React.FC<PostForm> = ({ setError }) => {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button onClick={handleResetVals} variant="outline">Reset</Button>
-        <Button onClick={handleCreatePost}>Post</Button>
+        <Button
+          onClick={handleCreatePost}
+          disabled={loading}
+        >
+          {loading &&
+            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+          } Post
+        </Button>
       </CardFooter>
     </>
   )

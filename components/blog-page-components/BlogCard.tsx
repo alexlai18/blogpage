@@ -14,7 +14,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
-    <Card id={blog.id} className="flex flex-row w-[100%]">
+    <Card id={`${blog._id}-card`} className="flex flex-row w-[100%]">
       <CardHeader className="w-[20%]">
         <CardTitle>
           <AspectRatio ratio={30 / 20} className="bg-muted">
