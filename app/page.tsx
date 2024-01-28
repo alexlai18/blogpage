@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex flex-col justify-between p-10 gap-y-10">
       <h1 className="text-center text-4xl font-extrabold tracking-tight lg:text-5xl">
-        Alexander Lai's Blog
+        Alexander Lai&#39;s Blog
       </h1>
       <div className="flex flex-col justify-between min-h-full">
         <h2 className="border-b pb-2 text-3xl font-semibold">
@@ -14,21 +14,21 @@ export default function Home() {
           About me
         </h3>
         <p className="pt-4 text-lg">
-          Hi! I'm Alexander Lai. I'm currently a final year student at UNSW, studying Computer Science 👨‍💻
+          Hi! I&#39;m Alexander Lai. I&#39;m currently a final year student at UNSW, studying Computer Science 👨‍💻
         </p>
         <p className="pt-4">
-          I'm passionate about technology, and how it can be applied into everyday life 😎
+          I&#39;m passionate about technology, and how it can be applied into everyday life 😎
         </p>
         <p className="pt-2">
           Just a bit of background information about myself. I have experience within both the business and tech industries, partaking in internships for both software engineering and assurance.
           If you want to know more about those experiences, there will be blog posts in this website talking about them!
         </p>
         <p className="pt-10">
-          This website is basically my personal blog where I just talk about what is on my mind or what I'm interested in.
+          This website is basically my personal blog where I just talk about what is on my mind or what I&#39;m interested in.
           This can include blog posts about certain technologies, my experiences, and/or anything that is on my mind 🤗
         </p>
         <p className="pt-4">
-          If you are interested in reaching out for any reason, please don't hesitate to contact me via LinkedIn or email.
+          If you are interested in reaching out for any reason, please don&#39;t hesitate to contact me via LinkedIn or email.
         </p>
         <p className="pt-4">
           Thanks for stopping by!

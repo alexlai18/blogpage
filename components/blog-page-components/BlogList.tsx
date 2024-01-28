@@ -27,7 +27,7 @@ const BlogList: React.FC<BlogCardProps> = ({ blogs }) => {
         blogPosts.length > 0 &&
         blogPosts.map((blog) => {
           return (
-            <button id={blog._id} className="w-full" onClick={() => router.push(`/blogs/${blog._id}`)}>
+            <button key={blog._id} id={blog._id} className="w-full" onClick={() => router.push(`/blogs/${blog._id}`)}>
               <BlogCard blog={blog} />
             </button>
           )

@@ -28,7 +28,7 @@ const CreateBlogPostCard = () => {
           <CardDescription>
             Write about anything you want!
           </CardDescription>
-          <div className="text-xs text-muted-foreground">&#40;Even if it's innappropriate 🤫&#41;</div>
+          <div className="text-xs text-muted-foreground">&#40;Even if it&#39;s innappropriate 🤫&#41;</div>
         </div>
       </CardHeader>
       <CreateBlogPostForm setError={setError}/>
