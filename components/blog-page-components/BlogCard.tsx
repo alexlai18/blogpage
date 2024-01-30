@@ -32,7 +32,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           <h1 className="font-semibold">{blog.title}</h1>
           <h2 className="text-muted-foreground font-light text-sm">Created on {blog.createdAt} by {blog.author}</h2>
         </div>
-        <p>{blog.content}</p>
+        <p>{blog.summary}</p>
       </CardContent>
     </Card>
   )
