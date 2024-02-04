@@ -3,14 +3,19 @@ import Link from "next/link"
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils"
 
-const MainNav = ({
+interface MainNavProps extends React.HTMLAttributes<HTMLElement> {
+  status: string;
+}
+
+const MainNav : React.FC<MainNavProps> = ({
   className,
+  status,
   ...props
-}: React.HTMLAttributes<HTMLElement>) => {
+}) => {
   const pathname = usePathname();
   return (
     <nav
-      className={cn("flex items-center space-x-4 lg:space-x-6 w-full", className)}
+      className={cn("flex items-center space-x-4 lg:space-x-6", className)}
       {...props}
     >
       <Link
@@ -25,18 +30,22 @@ const MainNav = ({
       >
         Blog Posts
       </Link>
-      <Link
-        href="/createpost"
-        className={`text-sm font-medium ${pathname === "/createpost" ? "" : "text-muted-foreground"} transition-colors hover:text-primary`}
-      >
-        Create a Blog Post
-      </Link>
-      <Link
-        href="/settings"
-        className={`text-sm font-medium ${pathname === "/settings" ? "" : "text-muted-foreground"} transition-colors hover:text-primary`}
-      >
-        Settings
-      </Link>
+      {status === "authenticated" &&
+        <>
+          <Link
+            href="/createpost"
+            className={`text-sm font-medium ${pathname === "/createpost" ? "" : "text-muted-foreground"} transition-colors hover:text-primary`}
+          >
+            Create a Blog Post
+          </Link>
+          <Link
+            href="/settings"
+            className={`text-sm font-medium ${pathname === "/settings" ? "" : "text-muted-foreground"} transition-colors hover:text-primary`}
+          >
+            Settings
+          </Link>
+        </>
+      }
     </nav>
   )
 }

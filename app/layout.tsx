@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import FullNav from "@/components/navigation/FullNav";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { NextAuthProvider } from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-        >
-          <div className="h-screen">
-            <FullNav />
-            {children}
-          </div>
-        </ThemeProvider>
+        <NextAuthProvider>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem
+              disableTransitionOnChange
+          >
+            <div className="h-screen">
+              <FullNav />
+              {children}
+            </div>
+          </ThemeProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );
